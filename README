@@ -1,0 +1,99 @@
+rmmq version 1.0
+=======================
+
+NAME:
+
+Range Minimum Maximum Query
+
+
+SYNOPSIS:
+
+    #include<vector>
+    #include<rmmq.hpp>
+ 
+    vector<int|long|unsigned|double> vec {1,5,23,7,8,3,12,5,3,44,56};
+
+/* sparse table */
+    /* Construct */
+    ST<int|long|unsigned|double> sptab(vec);
+    /* OR */
+    ST<int|long|unsigned|double> sptab;
+    sptab.make(vec)
+    
+    /* Explicite Destructor */
+    sptab.destroy();
+
+
+
+    
+/* rmmq */
+    /* Construct */
+    RMMQ<int|long|unsigned|double> rmmq(vec);
+    /* OR */
+    RMMQ<int|long|unsigned|double> rmmq;
+    rmmq.make(vec)
+
+    /* Explicite Destructor */
+    rmmq.destroy();
+  
+
+
+
+
+    /* Range Minimum Query for (5,3) */
+    /* return value */
+    rmmq.MinVal(5-1,3-1); // returns 7  (-1 is for vector index positions since indexing starts from 0)
+
+    /* return position */
+    rmmq.MinPos(5-1,3-1); // returns 3 since indexing starts from 0 (-1 is for vector index positions since indexing starts from 0)
+
+    /* Range Maximum Query for (3,5) */
+    /* return value */
+    rmmq.MaxVal(3-1,5-1); // returns 23  (-1 is for vector index positions since indexing starts from 0)
+
+    /* return position in array */
+    rmmq.MaxPos(3-1,5-1); // returns 2 since indexing starts from 0 (-1 is for vector index positions since indexing starts from 0)
+
+
+DESCRIPTION:
+
+Given an array of numbers (a) and two position i,j\in [1,|a|], program computes the minimum and/or maximum position and/or value within the interval specified by the two numbers (i and j).
+
+
+
+CONSTRUCTION AND RUNTIME COMPLEXITY:
+
+Complexity for n = |a| (number of elements in a given array):
+
+    Construction:  O(n log n)
+    
+    Retrieve:    O(1)
+
+
+ACKNOWLEDGMENTS:
+     
+     <http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=lowestCommonAncestor>
+
+AUTHOR:
+
+Robert Bakaric <rbakaric@irb.hr>, <bakaric@evolbio.mpg.de>
+
+COPYRIGHT AND LICENSE:
+
+ * Copyright 2015 Robert Bakaric
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+
