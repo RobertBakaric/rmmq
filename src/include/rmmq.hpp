@@ -162,15 +162,15 @@ RMMQ<TInt>::~RMMQ(){
 template <typename TInt>
 void RMMQ<TInt>::destroy(){
   vector<TInt>().swap(range);
-  this->destroy();
+  ST<TInt>::destroy();
 }
 
 
 /* Functions */
 template <typename TInt>
 void RMMQ<TInt>::make(const vector<TInt>& vec){
- range(vec);
- this->make(vec);
+ range = vec;
+ ST<TInt>::make(vec);
 }
 
 /* Queries */
